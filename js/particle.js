@@ -13,7 +13,7 @@ document.addEventListener("mousemove", function(e){
   body.appendChild(hearts)
   setTimeout(function(){
     hearts.remove()
-  },3000)
+  },2000)
 })
 /*
  * Settings
