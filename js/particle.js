@@ -1,3 +1,20 @@
+document.addEventListener("mousemove", function(e){
+  let body = document.querySelector("body")
+  let hearts = document.createElement("span")
+  let x = e.offsetX
+  let y = e.offsetY
+  hearts.style.left = x + "px"
+  hearts.style.top = y + "px"
+  let size = Math.random()*80
+  hearts.style.width = 20 + size + "px"
+  hearts.style.height = 20 + size + "px"
+  let transform = Math.random()*360
+  hearts.style.transform = `rotate(`+transform+`deg)`
+  body.appendChild(hearts)
+  setTimeout(function(){
+    hearts.remove()
+  },3000)
+})
 /*
  * Settings
  */
