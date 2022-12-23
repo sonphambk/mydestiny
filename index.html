@@ -11,18 +11,17 @@
 
   <body>
     <div id="my-audio">
-      <audio  autoplay="autoplay">
-        <source src="./audio/0.mp3" type="audio/mp3" />
+      <audio  >
+        <source src="./audio/1.mp3" type="audio/mp3" />
       </audio>
 
     </div>
 
     <script>
-      const soundEffect = new Audio();
-      soundEffect.autoplay = true;
-      soundEffect.src = "data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTcuODMuMTAwAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV";
-      // later on when you actually want to play a sound at any point without user interaction
-      soundEffect.src = './audio/0.mp3';
+      document.addEventListener('touchstart', function () {
+        document.getElementsByTagName('audio')[0].play();
+        document.getElementsByTagName('audio')[0].pause();
+    });
     </script>
     <!-- 星空html -->
     <!-- <div> -->
