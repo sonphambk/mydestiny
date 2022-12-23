@@ -278,3 +278,19 @@ span::before{
   transform: rotate(45deg);
   transform-origin: 100% 100%;
 }
+
+.name {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  font-family: 'Mr Dafoe';
+  margin: 0;
+  font-size: 2.2em;
+  margin-top: -0.6em;
+  color: white;
+  text-shadow: 0 0 0.05em #fff, 0 0 0.2em #fe05e1, 0 0 0.3em #fe05e1;
+   z-index:1000
+}
