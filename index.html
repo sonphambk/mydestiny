@@ -18,10 +18,14 @@
     </div>
 
     <script>
-      document.addEventListener('touchstart', function () {
-        document.getElementsByTagName('audio')[0].play();
-        document.getElementsByTagName('audio')[0].pause();
-    });
+       if (isMobileSafari()) {
+      setInterval(function () {
+        $('audio').each(function () {
+          this.pause();
+          this.play();
+        });
+      }, 2000);
+    }
     </script>
     <!-- 星空html -->
     <!-- <div> -->
