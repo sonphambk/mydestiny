@@ -5,11 +5,9 @@ document.addEventListener("mousemove", function(e){
   let y = e.offsetY
   hearts.style.left = x + "px"
   hearts.style.top = y + "px"
-  let size = Math.random()*80
+  let size = Math.random()*100
   hearts.style.width = 20 + size + "px"
   hearts.style.height = 20 + size + "px"
-  let transform = Math.random()*360
-  hearts.style.transform = `rotate(`+transform+`deg)`
   body.appendChild(hearts)
   setTimeout(function(){
     hearts.remove()
@@ -241,7 +239,7 @@ var ParticlePool = (function() {
     }
     context.closePath();
     // create the fill
-    context.fillStyle = "#ea80b0";
+    context.fillStyle = "red";
     context.fill();
     // create the image
     var image = new Image();

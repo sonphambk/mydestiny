@@ -24,7 +24,7 @@ a.white-mode:hover, a.white-mode:link:hover, a.white-mode:visited:hover, a.white
   z-index: 9999 !important;
   position: absolute;
   left: 50%;
-  top: 42%;
+  top: 50%;
   transform: translateX(-50%) translateY(-50%);
   font-family: "Montserrat";
   text-align: center;
@@ -80,14 +80,19 @@ canvas {
 
 #pinkboard {
   position: relative;
-  top: 0%;
+  top: 5%;
   left: 0%;
   height: 429px;
+  margin-top: 40px;
+  animation: animate 1.5s infinite;
+
 }
 
 .STARDUST1 {
   position: relative !important;
-  top: -60px;
+  top: -30px;
+  font-size: 50px !important;
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 70px #ffffff, 0 0 80px #ffffff, 0 0 100px #ffffff, 0 0 150px #ff417d;
 }
 
 .STARDUST2 {
@@ -99,8 +104,9 @@ canvas {
 
 .STARDUST3 {
   position: relative !important;
-  top: -20px;
+  top: 0px;
   z-index: 2;
+  font-size: 45px !important;
 }
 
 /* 星空css */
@@ -212,14 +218,63 @@ span::before{
   height: 100%;
   background: url(../icon/heart3.jpg);
   background-size: cover;
-  animation: moveShape 1s linear infinite;
+  transform: translate(-50%, 50%);
+  animation: moveShape 2s linear infinite;
 }
+
+
 
 @keyframes moveShape {
   0%{
-    transform: translate(0) rotate(0deg);
+    transform: translate(-50%, 50%);
+    opacity: 1;
+    filter: hue-rotate(0deg);
   }
-  0%{
-    transform: translate(360px) rotate(360deg);
+  100%{
+    transform: translate(-50%, -1000%);
+    opacity: 0;
+    filter: hue-rotate(720deg);
   }
+}
+
+@keyframes animate {
+  0% {
+    transform: scale(1.0);
+  }
+
+  30% {
+    transform: scale(0.8);
+  }
+
+  60% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+#pinkboard:before,
+#pinkboard:after {
+  content: "";
+  position: absolute;
+  background: #ffd96a;
+  width: 100px;
+  height: 160px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+#pinkboard.name {
+  left: 100px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#pinkboard:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
 }
