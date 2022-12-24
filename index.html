@@ -55,23 +55,13 @@
     
 //     request.send();
 // };
-    var nothing = new Audio("./audio/1.mp3")
-    var allAudio = []
-    allAudio.push(nothing)
 
-    var tapped = function() {
-      // Play all audio files on the first tap and stop them immediately.
-      if(allAudio) {
-        for(var audio of allAudio) {
-          audio.play()
-          audio.pause()
-          audio.currentTime = 0
-        }
-          allAudio = null
-        }
-      }
-    document.body.addEventListener("touchend", tapped, false)
-      
+   
+    var openAudio = function() {
+      var audio = new Audio("./audio/1.mp3")
+      audio.load()
+      audio.play()
+    }
     </script>
     <!-- 星空html -->
     <!-- <div> -->
@@ -89,7 +79,7 @@
       <canvas id="pinkboard">
     
       </canvas>
-      <h2 class="name"><strong>❤</strong> Ái Nhãn <strong>❤</strong></h2>
+      <h2 class="name" onclick="openAudio()"><strong>❤</strong> Ái Nhãn <strong>❤</strong></h2>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
