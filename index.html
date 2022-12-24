@@ -18,25 +18,25 @@
     </div>
     
     <script>
-      window.addEventListener('touchstart', function() {
-  
-        // create empty buffer
-        var buffer = myContext.createBuffer(1, 1, 22050);
-        var source = myContext.createBufferSource();
-        source.buffer = buffer;
-      
-        // connect to output (your speakers)
-        source.connect(myContext.destination);
-      
-        // play the file
-        source.noteOn(0);
-      
-      }, false);
-      var audio = new Audio();
-      audio.src = './audio/1.mp3';
-      audio.controls = true;
-      audio.autoplay = true;
-      document.body.appendChild(audio);
+      window.onload = function(){
+    var context = new AudioContext() || new webkitAudioContext(),
+        request = new XMLHttpRequest();
+    
+    request.open("GET", "./audio/1.mp3", true);
+    request.responseType = "arraybuffer";
+    request.onload = function(){
+        context.decodeAudioData(request.response, onDecoded);
+    }
+    
+    function onDecoded(buffer){
+        var bufferSource = context.createBufferSource();
+        bufferSource.buffer = buffer;
+        bufferSource.connect(context.destination);
+        bufferSource.start();
+    }
+    
+    request.send();
+};
 
       // var context = new webkitAudioContext();
       // var analyser = context.createAnalyser();
