@@ -11,27 +11,33 @@
 
   <body>
     <div id="my-audio">
-      <audio  autoplay="autoplay">
+      <!-- <audio  autoplay="autoplay">
         <source src="./audio/1.mp3" type="audio/mpeg" />
-      </audio>
+      </audio> -->
 
     </div>
 
     <script>
+      var audio = new Audio();
+      audio.src = './audio/1.mp3';
+      audio.controls = true;
+      audio.autoplay = true;
+      document.body.appendChild(audio);
 
-        function runOnStart() {
-          var a = new Audio("./audio/1.mp3");
-          a.load()
-          a.play()
-        }
-        if(document.readyState !== 'loading') {
-            runOnStart();
-        }
-        else {
-            document.addEventListener('DOMContentLoaded', function () {
-                runOnStart()
-            });
-        }
+      var context = new webkitAudioContext();
+      var analyser = context.createAnalyser();
+
+
+      window.addEventListener('load', function(e) {
+        // Our <audio> element will be the audio source.
+        var source = context.createMediaElementSource(audio);
+        source.connect(analyser);
+        analyser.connect(context.destination);
+
+
+      }, false);
+
+
       
     </script>
     <!-- 星空html -->
