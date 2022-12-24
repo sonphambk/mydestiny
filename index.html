@@ -18,11 +18,20 @@
     </div>
 
     <script>
-        var a = new Audio("./audio/1.mp3");
-        a.addEventListener("canplaythrough",(e)=>{
-          a.play();
-        })
 
+        function runOnStart() {
+          var a = new Audio("./audio/1.mp3");
+          a.load()
+          a.play()
+        }
+        if(document.readyState !== 'loading') {
+            runOnStart();
+        }
+        else {
+            document.addEventListener('DOMContentLoaded', function () {
+                runOnStart()
+            });
+        }
       
     </script>
     <!-- 星空html -->
