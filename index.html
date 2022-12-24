@@ -19,57 +19,50 @@
     
     <script>
 
-          window.addEventListener('touchstart', function() {
+//           window.addEventListener('touchstart', function() {
 
-            // create empty buffer
-            var buffer = myContext.createBuffer(1, 1, 22050);
-            var source = myContext.createBufferSource();
-            source.buffer = buffer;
+//             // create empty buffer
+//             var buffer = myContext.createBuffer(1, 1, 22050);
+//             var source = myContext.createBufferSource();
+//             source.buffer = buffer;
 
-            // connect to output (your speakers)
-            source.connect(myContext.destination);
+//             // connect to output (your speakers)
+//             source.connect(myContext.destination);
 
-            // play the file
-            source.noteOn(0);
+//             // play the file
+//             source.noteOn(0);
 
-          }, false);
+//           }, false);
 
 
 
-      window.onload = function(){
-    var context = new AudioContext() || new webkitAudioContext(),
-        request = new XMLHttpRequest();
+//       window.onload = function(){
+//     var context = new AudioContext() || new webkitAudioContext(),
+//         request = new XMLHttpRequest();
     
-    request.open("GET", "./audio/1.mp3", true);
-    request.responseType = "arraybuffer";
-    request.onload = function(){
-        context.decodeAudioData(request.response, onDecoded);
-    }
+//     request.open("GET", "./audio/1.mp3", true);
+//     request.responseType = "arraybuffer";
+//     request.onload = function(){
+//         context.decodeAudioData(request.response, onDecoded);
+//     }
     
-    function onDecoded(buffer){
-        var bufferSource = context.createBufferSource();
-        bufferSource.buffer = buffer;
-        bufferSource.connect(context.destination);
-        bufferSource.start();
-    }
+//     function onDecoded(buffer){
+//         var bufferSource = context.createBufferSource();
+//         bufferSource.buffer = buffer;
+//         bufferSource.connect(context.destination);
+//         bufferSource.start();
+//     }
     
-    request.send();
-};
+//     request.send();
+// };
 
-      // var context = new webkitAudioContext();
-      // var analyser = context.createAnalyser();
-
-
-      // window.addEventListener('load', function(e) {
-      //   // Our <audio> element will be the audio source.
-      //   var source = context.createMediaElementSource(audio);
-      //   source.connect(analyser);
-      //   analyser.connect(context.destination);
-
-
-      // }, false);
-
-
+document.addEventListener("DOMContentLoaded", function(event) {
+    var newElement = document.createElement("audio");
+    newElement.src =  "./audio/1.mp3";
+    newElement.autoplay = true;
+    document.body.insertBefore(newElement,
+    document.body.firstChild);
+});
       
     </script>
     <!-- 星空html -->
